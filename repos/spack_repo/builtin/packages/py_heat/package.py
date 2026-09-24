@@ -33,13 +33,13 @@ class PyHeat(PythonPackage):
     version("1.3.1", sha256="8997ddc56a1d3078b44a1e2933adc0a7fbf678bd19bade3ae015bc0e13d40d3b")
     version("1.3.0", sha256="fa247539a559881ffe574a70227d3c72551e7c4a9fb29b0945578d6a840d1c87")
 
-    variant("examples", default=False, description="Use py-scikit-learn and py-matplotlib for the example tests",)
-    variant("dev", default=False, description="Use the py-pre-commit package")
+    variant("examples", default=False, description="include packages need for the examples",)
+    variant("dev", default=False, description="include packages needed for development")
     variant("docutils", default=False, description="adding packages for working with documentation")
     variant("hdf5", default=False, description="Use the py-h5py package needed for HDF5 support")
     variant("netcdf", default=False, description="Use the py-netcdf4 package needed for NetCDF support")
     variant("zarr", default=False, description="Use the py-zarr package for Zarr support", when="@1.6:")
-    variant("pandas", default=False, description="include pandas for analysis",)
+    variant("pandas", default=False, description="use pandas for analysis", when="@1.9:")
 
     variant("cuda", default=False, description="build Py_Torch dependency with cuda support")
     variant("rocm", default=False, description="build Py_Torch dependency with rocm support")
