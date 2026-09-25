@@ -60,16 +60,10 @@ class PyHeat(PythonPackage):
         description="Use the py-zarr package for Zarr support",
         when="@1.6:",
     )
-    variant(
-        "pandas", default=False, description="use pandas for analysis", when="@1.9:"
-    )
+    variant("pandas", default=False, description="use pandas for analysis", when="@1.9:")
 
-    variant(
-        "cuda", default=False, description="build Py_Torch dependency with cuda support"
-    )
-    variant(
-        "rocm", default=False, description="build Py_Torch dependency with rocm support"
-    )
+    variant("cuda", default=False, description="build Py_Torch dependency with cuda support")
+    variant("rocm", default=False, description="build Py_Torch dependency with rocm support")
 
     depends_on("py-setuptools", type="build")
 
@@ -139,7 +133,7 @@ class PyHeat(PythonPackage):
         depends_on("py-zarr@:3.2", when=("+zarr"), type=("build", "link", "run"))
         depends_on("py-h5py@3.11:", when=("+hdf5"), type=("build", "link", "run"))
         depends_on("py-netcdf4@1.7:", when=("+netcdf"), type=("build", "link", "run"))
-        depends_on("py-pandas@2.3.0:",when=("+pandas"), type=("build", "link", "run"))
+        depends_on("py-pandas@2.3.0:", when=("+pandas"), type=("build", "link", "run"))
 
         with when("+examples"):
             depends_on("pil@6:", type=("build", "run"))
